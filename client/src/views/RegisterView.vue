@@ -1,96 +1,49 @@
 <template>
-  <v-card max-width="450" class="mx-auto">
-    
-          <!--<panel title="Register">-->  
-            <v-flex sm-12>
+  <div class="hello">
+    <h1>Register</h1>
+    <input
+          type='email'
+          text='email'
+					v-model='email'
+          placeholder='email' />
+    <br>
+    <input
+          type='password'
+          text='password'
+					v-model='password'
+          placeholder='password' />
+    <br>
+    <button
+        @click='register'>
+        Register
+    </button>
 
-              <!-- text-field-->
-              <div title="Register">
-                <form name="tab-tracker-form" autocomplete="off">
-                  <v-text-field 
-                    label="Email" 
-                    v-model="email"
-                    :rules="emailRules"
-                    required
-                  ></v-text-field>
-                  <br />
-                  <v-text-field
-                    label="Password"
-                    type="password"
-                    v-model="password"
-                    autocomplete="new-password"
-                    :rules="passwordRules"
-                    error-count="5"
-                    required
-                  ></v-text-field>
-                </form>
-                <br />
-
-                <!--button-->
-                <div class="danger-alert" v-html="error" />
-                <br />
-                <v-btn 
-                  dark 
-                  class="cyan" 
-                  @click="register"> 
-                  Register 
-                </v-btn>
-              </div>
-            </v-flex>
-
-          <!--</panel>-->
-
-  </v-card>
+  </div>
 </template>
 
 <script>
-import AuthenticationService from '@/service/AuthenticationService'
-
-
 export default {
   data () {
     return {
-      email: '',
-      password: '',
-      error: null,
-      emailRules: [
-        v => !!v || 'Email is required',
-        v => /.+@.+/.test(v) || 'Email must be valid'
-      ],
-      passwordRules:[
-        v => !!v || 'Password is required',
-        v => (v && v.length >= 5) || 'Password must have 5+ characters',
-        v => /(?=.*[A-Z])/.test(v) || 'Must have one uppercase character',
-        v => /(?=.*\d)/.test(v) || 'Must have one number',
-        v => /([!@$%])/.test(v) || 'Must have one special character [!@#$%]'
-      ]
+      email: '123',
+      password: 'abc'
+    }
+  },
+//   watch:{
+    //   email(value){
+        //   console.log('email has changed',value)
+    //   }
+//   },
+//   mounted (){
+    //   setTimeout(() => {
+        //   this.email = 'Try Again'
+    //   },2000)
+//   }
+    methods: {
+        register() {
+            console.log('register button was clicked', this.email, this.password)
+        }
+    }
 
-    }
-  },
-  methods: {
-    async register () {
-      try {
-        const response = await AuthenticationService.register({
-          email: this.email,
-          password: this.password
-        })
-        await this.$store.dispatch('setToken', response.data.token)
-        await this.$store.dispatch('setUser', response.data.user)
-      } catch (error) {
-        this.error = error.response.data.error
-      }
-    }
-  },
-  components:{
-    
-  }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-.danger-alert {
-  color: red;
-}
-</style>

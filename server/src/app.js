@@ -10,16 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get("/",(req,res) =>{
-    res.send({
-        message:"hello world!",
-    });
-});
-
-app.post("/register", (req, res) => {
-    res.send({
-      message: "Your user"+req.body.email+"was registered, have fun!",
-    });
-  });
+require('./routes')(app)
 
 app.listen(8081);
+console.log('express is ok!')
