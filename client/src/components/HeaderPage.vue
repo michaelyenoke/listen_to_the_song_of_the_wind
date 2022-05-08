@@ -1,0 +1,131 @@
+<template>
+  <v-app>
+    <!--part01:navigation-drawer-->
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6"> 聽風的歌 </v-list-item-title>
+          <v-list-item-subtitle>
+            Listen to the song of the wind
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense nav>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!--part02:app-bar-->
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      src="https://cw1.tw/CW/images/article/C1438323247010.jpg"
+      prominent
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+        ></v-img>
+      </template>
+
+
+      <!--part03-->
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-title> 
+            <span
+                class="home"
+                @click="navigateTo({name:'home'})">
+                    風の歌を聴け
+            </span> 
+        </v-app-bar-title>
+      <v-spacer></v-spacer>
+
+
+        <!--Insert Part-->
+    
+        <v-btn flat dark
+          @click="navigateTo({name:'login'})">  
+          Log In
+        </v-btn>
+
+
+        <v-btn flat dark>
+          Browse
+        </v-btn>
+   
+        <v-btn flat dark
+          @click="navigateTo({name:'register'})">  
+          Sign up
+        </v-btn>
+    
+
+
+
+      <v-btn icon
+        ><!--放大鏡圖示-->
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon
+        ><!--心型圖示-->
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon
+        ><!--三點選項圖示-->
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+
+
+
+
+    </v-app-bar>
+
+    <!--part04-->
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
+</template>
+
+<script>
+export default {
+  name: 'HeaderPage',
+  methods:{
+      navigateTo(router){
+        this.$router.push(router)
+      }
+  },
+  data: () => ({
+    drawer: null,
+    items: [
+      { title: "Todo", icon: "mdi-clipboard-list-outline", to: "/" },
+      { title: "About", icon: "mdi-information", to: "/about" },
+      { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },
+    ],
+  }),
+};
+</script>
+
+<style scoped>
+.home {
+  cursor:pointer;
+}
+
+.home:hover {
+  color: #E9E;
+}
+</style>
