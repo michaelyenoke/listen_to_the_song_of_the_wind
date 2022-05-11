@@ -56,17 +56,17 @@
 
         <!--Insert Part-->
     
-        <v-btn flat dark
+        <v-btn text dark
           @click="navigateTo({name:'login'})">  
           Log In
         </v-btn>
 
 
-        <v-btn flat dark>
+        <v-btn text dark>
           Browse
         </v-btn>
    
-        <v-btn flat dark
+        <v-btn text dark
           @click="navigateTo({name:'register'})">  
           Sign up
         </v-btn>
