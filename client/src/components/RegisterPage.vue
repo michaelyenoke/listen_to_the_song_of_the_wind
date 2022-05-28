@@ -58,11 +58,14 @@ export default {
   methods: {
     async register() {
       try {
-        var response = await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password,
         });
-        console.log(response.data);
+        //查看 將 const response 改成 var response
+        //console.log(response.data);
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error;
       }

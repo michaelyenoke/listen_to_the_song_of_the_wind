@@ -48,29 +48,28 @@
             <span
                 class="home"
                 @click="navigateTo({name:'home'})">
-                    風の歌を聴け
+                    Tempura - 聽天婦羅的歌
             </span> 
         </v-app-bar-title>
       <v-spacer></v-spacer>
 
 
         <!--Insert Part-->
-    
-        <v-btn text dark
+        <v-btn 
+          v-if="!$store.state.inUserLoggedIn"
+          text 
+          dark
           @click="navigateTo({name:'login'})">  
           Log In
         </v-btn>
 
-
-        <v-btn text dark>
-          Browse
-        </v-btn>
-   
-        <v-btn text dark
+        <v-btn 
+          v-if="!$store.state.inUserLoggedIn"
+          text 
+          dark
           @click="navigateTo({name:'register'})">  
-          Sign up
+          Sign Up
         </v-btn>
-    
 
 
 
