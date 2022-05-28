@@ -11,15 +11,15 @@ export default new Vuex.Store({
     isUserLoggedIn: false
   },
   mutations: {
-    setToken (state, token) {
+    setToken (state, token) { // 這個token來自action帶入的token的值
       state.token = token
-      if (token) {
+      if (token) { // 翻譯：如果有token的值
         state.isUserLoggedIn = true
       } else {
         state.isUserLoggedIn = false
       }
     },
-    setUser (state, user) {
+    setUser (state, user) { // 這個user來自action帶入的token的值
       state.user = user
     }
   },
@@ -28,7 +28,7 @@ export default new Vuex.Store({
       commit('setToken', token)
     },
     setUser ({commit}, user) {
-      commit('setToken', user)
+      commit('setUser', user)
     }
   },
   modules: {

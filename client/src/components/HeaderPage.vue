@@ -54,9 +54,12 @@
       <v-spacer></v-spacer>
 
 
-        <!--Insert Part-->
+        <!--Insert Part
+         v-if="!$store.state.inUserLoggedIn"   -> 如果不是true,後面"Log In"就會一直出現
+         -> only display when user is not log in
+        -->
         <v-btn 
-          v-if="!$store.state.inUserLoggedIn"
+          v-if="!$store.state.isUserLoggedIn"  
           text 
           dark
           @click="navigateTo({name:'login'})">  
@@ -64,7 +67,7 @@
         </v-btn>
 
         <v-btn 
-          v-if="!$store.state.inUserLoggedIn"
+          v-if="!$store.state.isUserLoggedIn"
           text 
           dark
           @click="navigateTo({name:'register'})">  
@@ -105,7 +108,9 @@ export default {
   name: 'HeaderPage',
   methods:{
       navigateTo(router){
-        this.$router.push(router)
+        this.$router.push(router).catch(err => {
+          console.log('輸出報錯:','NavigationDuplicated: Avoided redundant navigation to current location: "/register".')
+        })
       }
   },
   data: () => ({

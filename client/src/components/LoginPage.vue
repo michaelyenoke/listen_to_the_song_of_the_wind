@@ -64,6 +64,11 @@ export default {
         });
         // 查看 const response 改成 var
         // console.log(response.data)
+
+        // vuex - import store/index.js -> dispatch 觸發 action
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+
       } catch (error) {
         this.error = error.response.data.error;
       }
