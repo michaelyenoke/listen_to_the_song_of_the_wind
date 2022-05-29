@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeViewRoute from '../views/HomeView.vue'
 import RegisterViewRoute from '../views/RegisterView.vue' 
 import LoginView from '../views/LoginView.vue' 
+import SongsView from '../views/SongsView.vue' 
 
 Vue.use(VueRouter)
 
@@ -29,11 +30,17 @@ const routes = [
     path:'/login',
     name:'login',
     component:LoginView
+  },
+  {
+    path: '/songs',
+    name: 'songs',
+    component: SongsView
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode:'history'
 })
 
 export default router

@@ -1,18 +1,9 @@
 <template>
-  <v-card max-width="450" class="mx-auto">
-    <!--上半部的bar-->
-    <v-toolbar color="cyan" dark>
-      <v-toolbar-title>Register</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
+  <card-panel title="Register">
 
-    <!--  List 的部分 -->
-    <v-list three-line>
-      <template>
-        <div class="container">
+    <!--slot part-->
           <v-layout>
             <v-flex sm-12>
-              <!--<panel title="Register">-->
                 <form name="tab-tracker-form" autocomplete="off">
                   <v-text-field 
                     label="Email" 
@@ -33,20 +24,17 @@
                 <div class="danger-alert" v-html="error" />
                 <br />
                 <v-btn dark class="cyan" @click="register"> Register </v-btn>
-              <!--</panel>-->
             </v-flex>
           </v-layout>
-        </div>
+    <!--slot part-->
 
-        
-      </template>
-    </v-list>
-  </v-card>
-</template>
+  
+  </card-panel>
+</template> 
 
 <script>
 import AuthenticationService from "@/service/AuthenticationService";
-
+import CardPanel from "@/components/CardPanel.vue";
 
 export default {
   name:'RegisterPage',
@@ -66,10 +54,14 @@ export default {
         //console.log(response.data);
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        
       } catch (error) {
         this.error = error.response.data.error;
       }
     },
+  },
+  components: {
+    CardPanel,
   },
 };
 </script>
