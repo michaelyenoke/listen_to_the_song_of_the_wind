@@ -1,39 +1,59 @@
 <template>
 
-  <!-- title name will be props by CardPanel.vue -->
-  <card-panel title="Songs">
-
-    <!--這裡有兩個 slots 只有被寫進去 CardPanel的才會顯示出來-->
-    
-    <div slot="hello">
-      <h3>Heloo Everyone</h3>
-      <br/>
-      <p>Yo Yo YO</p>
-    </div>
-
-    <div slot="bye">
-      <h3>See You Again</h3>
-      <br/>
-      <p>Bye Bye Bye</p>
-    </div>
-
-  </card-panel>
-
+    <!-- CardPanel.vue -->
+    <card-panel title="Songs">
+      <v-flex xs8 offset-xs2>
+        <div v-for="song in songs" :key="song.title">
+          {{ song.title }} <br/>
+          {{ song.artist }} <br/>
+          {{ song.album }} 
+        </div>
+      </v-flex>
+    </card-panel>
+    <!-- CardPanel.vue -->
 
 </template>
 
-
 <script>
-import CardPanel from "@/components/CardPanel.vue";
+import CardPanel from "@/components/CardPanel";
 
 export default {
-  name: "SongsPage",
   components: {
     CardPanel,
   },
+  data() {
+    return {
+      songs: [
+        {
+          title: "Float On 01",
+          artist: "Modest Mouse",
+          album: "Good News for People Who Love",
+        },
+        {
+          title: "Float On 02",
+          artist: "Modest Mouse",
+          album: "Good News for People Who Love",
+        },
+        {
+          title: "Float On 03",
+          artist: "Modest Mouse",
+          album: "Good News for People Who Love",
+        },
+        {
+          title: "Float On 04",
+          artist: "Modest Mouse",
+          album: "Good News for People Who Love",
+        },
+        {
+          title: "Float On 05",
+          artist: "Modest Mouse",
+          album: "Good News for People Who Love",
+        },
+      ],
+    };
+  },
 };
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
