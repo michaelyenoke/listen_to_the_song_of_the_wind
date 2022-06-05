@@ -41,13 +41,14 @@ module.exports ={
             console.log('Console Log Here:')   
             console.log('user',user.toJSON())   
 
-            if(!user){
+            if(!user){  // !user : translate -> "if user object is not finded."
                 return res.status(403).send({
                     error:'The login information was incorrect.'
                 })
             }
 
-            //const isPasswordValid = password === user.password
+            // const isPasswordValid = password === user.password
+            // 改用套件來處理
             const isPasswordValid = await user.comparePassword(password)
 
             //查看問題：
@@ -57,7 +58,7 @@ module.exports ={
 
 
 
-            if(!isPasswordValid) {
+            if(!isPasswordValid) { // !user : translate -> "if user object is not finded."
                 return res.status(403).send({
                     error:'The login information was incorrect'
                 })
@@ -65,6 +66,7 @@ module.exports ={
 
 
             const userJson = user.toJSON()
+            // postman 回傳內容
             res.send({
                 user: userJson,
                 token: jwtSignUser(userJson) //加入這行

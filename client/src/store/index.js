@@ -11,7 +11,7 @@ export default new Vuex.Store({
     isUserLoggedIn: false
   },
   mutations: {
-    setToken (state, token) { // 這個token來自action帶入的token的值
+    setToken (state, token) { // 這個token來自action帶入的token(or null - logout) 的值
       state.token = token
       if (token) { // 翻譯：如果有token的值
         state.isUserLoggedIn = true
@@ -19,7 +19,7 @@ export default new Vuex.Store({
         state.isUserLoggedIn = false
       }
     },
-    setUser (state, user) { // 這個user來自action帶入的token的值
+    setUser (state, user) { // 這個user來自action帶入的token(or null - logout) 的值
       state.user = user
     }
   },
