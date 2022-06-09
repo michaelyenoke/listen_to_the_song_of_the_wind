@@ -4,12 +4,13 @@
 
 
 <script>
-import SongsService from "@/service/SongsService"
-import CardPanel from "@/components/CardPanel";
+import SongsService from '@/service/SongsService'
+import SongsPage from '../components/SongsPage'
 
 export default {
+  name:'Songs',
   components: {
-    CardPanel,
+    SongsPage
   },
   data() {
     return {
