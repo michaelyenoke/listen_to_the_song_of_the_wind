@@ -10,7 +10,7 @@ export default {
   },
 
   show (songId) {
-    return Api().get('songs/${songId}')
+    return Api().get('songs/${songId}') //${songId} -> search by the name of the song
   }
 
 }
