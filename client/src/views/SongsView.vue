@@ -4,14 +4,15 @@
 
 
 <script>
-import SongsService from '@/service/SongsService'
-import SongsPage from '../components/SongsPage'
+//import SongsService from '@/service/SongsService'
+import SongsPage from '../components/ViewSong/SongsPage'
 
 export default {
   name:'Songs',
   components: {
     SongsPage
   },
+  /*
   data() {
     return {
       songs: null
@@ -21,7 +22,8 @@ export default {
         // do a request to the backend for all the songs
         // get request
         this.songs = await SongsService.get()
-    }  
+    }
+  */    
 }
 </script>
 

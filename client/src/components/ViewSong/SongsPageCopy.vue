@@ -16,6 +16,21 @@
       >
         <v-icon>add</v-icon>
       </v-btn>
+      <v-btn
+        dark
+        class="cyan"
+        @click="
+          navigateTo({
+            name: 'songid',
+            params: {
+              //restful api 網址的構成部分
+              songId: song.id,
+            },
+          })
+        "
+      >
+        View
+      </v-btn>
     </div>
 
     <!--add buttion-->
@@ -39,14 +54,19 @@ export default {
   name: "SongsPage",
   data() {
     return {
-      songs: null,
+      song: null,
     };
   },
   async mounted() {
-    // do a request to the backend for all the songs
-    // get request
-    this.songs = (await SongsService.get()).data;
-    //console.log('songs', this.songs)
+    //這部分和取網址songId的值無關
+
+    // 這裡的 route -> main.js ->sync(store, router)
+    // 這裡的 songId 來自於 SongsPage.vue 中的 "VIEW" button-> click 透過 navigateTo 送到路由內做為參數
+    const songId = this.$store.state.route.params.songId;
+    console.log("QQQQQQAAAAAQQQQQQQQ");
+    console.log(songId);
+
+    this.song = (await SongsService.show(songId)).data;
   },
 
   components: {
