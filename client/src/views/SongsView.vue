@@ -5,7 +5,7 @@
 
 <script>
 //import SongsService from '@/service/SongsService'
-import SongsPage from '../components/ViewSong/SongsPage'
+import SongsPage from '../components/ViewSongPage/SongsPage'
 
 export default {
   name:'Songs',

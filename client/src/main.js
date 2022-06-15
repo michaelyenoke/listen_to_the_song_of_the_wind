@@ -5,10 +5,11 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import {sync} from 'vuex-router-sync'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import Panel from '@/components/Globals/Panel'
 
 Vue.use(VueYouTubeEmbed)
-
 Vue.config.productionTip = false
+Vue.component('panel',Panel)
 sync(store, router) 
 
 new Vue({

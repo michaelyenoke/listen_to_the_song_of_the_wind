@@ -5,7 +5,7 @@
 
 
 <script>
-import IdPage from '../components/SongIdPage'
+import IdPage from '../components/ViewSongPage/SongIdPage'
   export default {
     name:'songid',
     components: {

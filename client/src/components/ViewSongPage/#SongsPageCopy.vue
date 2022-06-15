@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import SongsService from "@/service/SongsService";
-import CardPanel from "@/components/CardPanel";
+import SongsService from "@/services/SongsService";
+//import CardPanel from "@/components/CardPanel";
 
 export default {
   name: "SongsPage",

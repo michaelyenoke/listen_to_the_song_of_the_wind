@@ -5,8 +5,8 @@
              {{ youtubeId}}
               <youtube
                 :video-id='youtubeId'
-                :player-width="500"
-                :player-height="200"
+                :player-width="700"
+                :player-height="500"
               >
               </youtube>
           </div>

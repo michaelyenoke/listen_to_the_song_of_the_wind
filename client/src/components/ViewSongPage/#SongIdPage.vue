@@ -4,7 +4,7 @@
 
 
 <script>
-import SongsService from '@/service/SongsService'
+import SongsService from '@/services/SongsService'
 
 export default {
     name: "SongId",    

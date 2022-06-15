@@ -7,6 +7,7 @@
         <panel title="Song Metadata">
           <v-layout>
             <v-flex xs12>
+
               <!--     start        -->
               <validation-provider
                 v-slot="{ errors }"
@@ -38,7 +39,7 @@
                 ></v-text-field>
               </validation-provider>
               <!--     end        -->
-
+            
               <!--     start        -->
               <validation-provider
                 v-slot="{ errors }"
@@ -53,7 +54,7 @@
                   required
                 ></v-text-field>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->     
 
               <!--     start        -->
               <validation-provider
@@ -69,7 +70,8 @@
                   required
                 ></v-text-field>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->   
+
 
               <!--     start        -->
               <validation-provider
@@ -85,7 +87,8 @@
                   required
                 ></v-text-field>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->            
+
 
               <!--     start        -->
               <validation-provider
@@ -101,7 +104,7 @@
                   required
                 ></v-text-field>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->            
 
               <!--     start        -->
               <validation-provider
@@ -109,18 +112,18 @@
                 name="tab"
                 rules="required"
               >
-                <v-col cols="24" md="12">
-                  <v-text-field
-                    v-model="song.tab"
-                    :counter="1000"
-                    :error-messages="errors"
-                    label="Tab"
-                    required
-                    hint="@@"
-                  ></v-text-field>
-                </v-col>
+              <v-col cols="24" md="12" >
+                <v-text-field
+                  v-model="song.tab"
+                  :counter="1000"
+                  :error-messages="errors"
+                  label="Tab"
+                  required
+                  hint="@@"
+                ></v-text-field>
+              </v-col>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->            
 
               <!--     start        -->
               <validation-provider
@@ -128,23 +131,26 @@
                 name="lyrics"
                 rules="required"
               >
-                <v-col cols="24" md="12">
-                  <v-text-field
-                    v-model="song.lyrics"
-                    :counter="2000"
-                    :error-messages="errors"
-                    label="Lyrics"
-                    required
-                    hint="@@"
-                  ></v-text-field>
-                </v-col>
+              <v-col cols="24" md="12" >
+                <v-text-field
+                  v-model="song.lyrics"
+                  :counter="1000"
+                  :error-messages="errors"
+                  label="Lyrics"
+                  required
+                  hint="@@"
+                ></v-text-field>
+              </v-col>
               </validation-provider>
-              <!--     end        -->
+              <!--     end        -->            
+
             </v-flex>
           </v-layout>
         </panel>
 
-        <v-btn class="mr-4" type="submit" :disabled="invalid"> save </v-btn>
+        <v-btn class="mr-4" type="submit" :disabled="invalid"> submit </v-btn>
+
+        <v-btn @click="clear"> clear </v-btn>
       </form>
     </validation-observer>
   </v-card>
@@ -158,7 +164,6 @@ import {
   ValidationProvider,
   setInteractionMode,
 } from "vee-validate";
-
 
 import SongsService from "@/services/SongsService";
 
@@ -195,6 +200,110 @@ export default {
     ValidationProvider,
     ValidationObserver,
   },
+  data: () => ({
+    song: {
+      title: "",
+      artist: "",
+      genre: "",
+      album: "",
+      albumImageUrl: "",
+      youtubeId: "",
+      lyrics: "",
+      tab: "",
+    },
+    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+    checkbox: null,
+  }),
+
+  methods: {
+    async submit() {
+      await this.$refs.observer.validate();
+
+      try {
+        this.song = await SongsService.post(this.song);
+        // create後轉址到songs
+        this.$router.push({
+          name: "songs",
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    clear() {
+      this.song.title = "";
+      this.song.artist = "";
+      this.song.genre = "";
+      this.select = null;
+      this.checkbox = null;
+      this.$refs.observer.reset();
+    },
+  },
+};
+</script>
+<!--
+<template>
+  <v-card max-width="750" class="max-auto">
+    //CardPanel.vue
+    <div class="cont">
+      <v-layout>
+        <card-panel title="Song Metadata">
+          <v-flex xl-12 offset-xl-12>
+            //create data
+            <v-text-field label="Title" v-model="song.title"></v-text-field>
+            //create data
+            <v-text-field label="Artist" v-model="song.artist"></v-text-field>
+            //create data
+            <v-text-field label="Genre" v-model="song.genre"></v-text-field>
+            //create data
+            <v-text-field label="Album" v-model="song.album"></v-text-field>
+            //create data
+            <v-text-field
+              label="Album Image Url"
+              v-model="song.albumImageUrl"
+            ></v-text-field>
+          </v-flex>
+        </card-panel>
+
+        <card-panel title="Song Structure">
+          <v-flex xl-8 offset-xl-8>
+            //create data
+            <v-col cols="12" md="6">
+              <v-textarea
+                name="input-7-1"
+                label="Tab"
+                value="Please type here."
+                v-model="song.tab"
+                hint="Hint text"
+              ></v-textarea>
+            </v-col>
+            //create data
+            <v-col cols="12" md="6">
+              <v-textarea
+                name="Lyrics"
+                label="Default style"
+                value="Please type here."
+                v-model="song.lyrics"
+                hint="Hint text"
+              ></v-textarea>
+            </v-col>
+          </v-flex>
+        </card-panel>
+      </v-layout>
+    </div>
+    <v-btn dark class="cyan" @click="create"> Create </v-btn>
+  </v-card>
+</template>
+
+<script>
+//import CardPanel from "@/components/CardPanel";
+import SongsService from "@/services/SongsService";
+
+export default {
+  name: "CreatePage",    
+  
+  components: {
+    CardPanel,
+  },
   data() {
     return {
       song: {
@@ -209,115 +318,22 @@ export default {
       },
     };
   },
-
-  // 直接將資料帶入欄位
-  async mounted() {
-    const songId = this.$store.state.route.params.songId;
-    this.song = (await SongsService.show(songId)).data;
-    console.log(this.song)
-  },
-  
-  // 按鈕 save
   methods: {
-    async submit() {
-      // form validation
-      await this.$refs.observer.validate();
-
-
-      //console.log(songId)
+    async create() {
       try {
-        // update data by put
-
-        console.log(this.song)
-        console.log('hello1')
-        const songId = this.$store.state.route.params.songId
-        await SongsService.put(this.song,songId) // SongsService 有兩個參數,這裡要帶兩個
-
-       
-
-
-        // send to page of song id you want to edit        
-        await this.$router.push({
-          name: "song",
-          params: {
-            songId: this.$store.state.route.params.songId,
-          },
+        await SongsService.post(this.song);
+        //console.log('NBA')
+        //console.log(this.song)
+        this.$router.push({
+          name: "songs",
         });
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
       }
-    }
+    },
   },
 };
 </script>
 
-<!--
-<template>
-    <card-panel title="Youtube">
-        <you-tube-part :youtubeId="youtubeId"/>
-        <v-btn
-          dark
-          class="cyan"
-          :to="{
-            name: 'song-edit', 
-            params () {
-              return {
-                songId: song.id
-              }
-            }
-          }">
-          Edit
-        </v-btn>
-
-        <v-btn 
-          class="mr-4" 
-          type="submit" 
-          :disabled="invalid"
-        > 
-        Save 
-        </v-btn>
-        
-    </card-panel>
-</template>
-
-<script>
-import AuthenticationService from "@/services/AuthenticationService";
-//import CardPanel from "@/components/CardPanel.vue";
-
-export default {
-
-// 按鈕 save
- methods: {
-    async submit() {
-      // form validation
-      await this.$refs.observer.validate();
-
-
-      //console.log(songId)
-      try {
-        // update data by put
-
-        console.log(this.song)
-        console.log('hello1')
-        const songId = this.$store.state.route.params.songId
-        await SongsService.put(this.song,songId) // SongsService 有兩個參數,這裡要帶兩個
-
-       
-
-
-        // send to page of song id you want to edit        
-        await this.$router.push({
-          name: "song",
-          params: {
-            songId: this.$store.state.route.params.songId,
-          },
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  },
-
-}
-</script>
+<style lang="scss" scoped></style>
 -->
