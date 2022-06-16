@@ -157,16 +157,16 @@
 </template>
 
 <script>
-import { required, digits, email, max, regex } from "vee-validate/dist/rules";
-import {
-  extend,
-  ValidationObserver,
-  ValidationProvider,
-  setInteractionMode,
-} from "vee-validate";
+//import { required, digits, email, max, regex } from "vee-validate/dist/rules";
+//import {
+//  extend,
+//  ValidationObserver,
+//  ValidationProvider,
+//  setInteractionMode,
+//} from "vee-validate";
 
 import SongsService from "@/services/SongsService";
-
+/*
 setInteractionMode("eager");
 
 extend("digits", {
@@ -193,12 +193,12 @@ extend("email", {
   ...email,
   message: "Email must be valid",
 });
-
+*/
 export default {
   components: {
     
-    ValidationProvider,
-    ValidationObserver,
+    //ValidationProvider,
+    //ValidationObserver,
   },
   data: () => ({
     song: {

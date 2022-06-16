@@ -1,61 +1,62 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeViewRoute from '../views/HomeView.vue'
-import RegisterViewRoute from '../views/RegisterView.vue' 
-import LoginView from '../views/LoginView.vue' 
-import SongsView from '../views/SongsView.vue' 
-import CreateSongs from '../views/CreateSongsView.vue' 
-import SongId from '../views/SongIdView.vue' 
+import Home from '../views/Home.vue'
+import Register from '../views/Register.vue' 
+import Login from '../views/Login.vue' 
+import Songs from '../views/Songs.vue' 
+import CreateSong from '../views/CreateSong.vue' 
+import ViewSong from '../views/ViewSong.vue' 
+import EditSong from '../views/EditSong.vue' 
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  //預設首頁
+  {
+    path: '*',
+    redirect: 'root'
+  },
   {
     path: '/',
-    name: 'home',
-    component: HomeViewRoute  
+    name: 'root',
+    component: Home  // views
   },
-  // {
-    // path: '/about',
-    // name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // },
   {
     path: '/register',
     name: 'register',
-    component: RegisterViewRoute
+    component: Register //views -> register
   },
   {
-    path:'/login',
-    name:'login',
-    component:LoginView
+    path: '/login',
+    name: 'login',
+    component: Login // views
   },
   {
     path: '/songs',
     name: 'songs',
-    component: SongsView
+    component: Songs // views
   },
   {
     path: '/songs/create',
-    name: 'songscreate',
-    component: CreateSongs  // views
+    name: 'songs-create',
+    component: CreateSong  // views
+  },
+  {
+    path: '/songs/:songId/edit',
+    name: 'songs-edit',
+    component: EditSong  // views
   },
   {
     path: '/songs/:songId',
-    name: 'songid',
-    component: SongId // views
+    name: 'song',
+    component: ViewSong // views
   }
-  
-  
 ]
 
 const router = new VueRouter({
-  routes,
-  mode:'history'
+  mode:'history',
+  routes
 })
 
 export default router
