@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="750" class="mx-auto">
+  <v-card max-width="1000" class="mx-auto">
 
     <panel title="Song Metadata">
         <song-metadata :song="song" />
@@ -71,7 +71,7 @@ export default {
 }
 
 .album-image {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
 </style>

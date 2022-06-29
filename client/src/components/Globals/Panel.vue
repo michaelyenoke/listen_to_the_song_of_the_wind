@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="450" class="mx-auto">
+  <v-card max-width="850" class="mx-auto">
     <!--上半部的bar-->
     <v-toolbar color="cyan" dark>
       <!-- props in title name -->

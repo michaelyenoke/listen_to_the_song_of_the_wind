@@ -19,7 +19,7 @@
       <v-flex xs8 offset-xs2>
         <div v-for="song in songs" class="song" :key="song.id">
           <v-layout>
-            <v-flex xs6>
+            <v-flex xs10>
               <div class="song-id">
                 {{ song.id }}
               </div>

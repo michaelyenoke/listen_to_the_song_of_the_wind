@@ -1,10 +1,10 @@
 <template>
  <v-flex>
-  <v-card max-width="750" class="mx-auto">
+  <v-card max-width="1000" class="mx-auto">
         <song-search />
 </v-card>
 
-<v-card max-width="750" class="mx-auto">
+<v-card max-width="1000" class="mx-auto">
     
         <song-panel  />
     
