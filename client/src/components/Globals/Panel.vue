@@ -1,3 +1,9 @@
+
+
+<!-- login register 的表格框 -->
+<!-- 現在還沒有import到下面 -->
+
+
 <template>
   <v-card max-width="850" class="mx-auto">
     <!--上半部的bar-->
@@ -9,6 +15,7 @@
     <!--add button-->
     <slot name="action"></slot>
     <!--add button-->
+
 
     <!-- three-line List -->
     <v-list three-line>
@@ -22,6 +29,8 @@
       </template>
     </v-list>
     <!-- three-line List -->
+
+
   </v-card>
 </template>
 

@@ -4,13 +4,22 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+
+  // 01
   strict: true,
+  
+  // 02
+  // 來自 mutations 的狀態
   state: {
-    token: null,
-    user: null,
+    token: null, 
+    user: null,  
     isUserLoggedIn: false
   },
-  mutations: {  //都是login的動作
+  
+  // 03
+  // 來自 actions
+  mutations: {
+    // 這個token來自action帶入的token(or null - logout) 的值  
     setToken (state, token) {
       state.token = token
       if (token) {
@@ -19,56 +28,27 @@ export default new Vuex.Store({
         state.isUserLoggedIn = false
       }
     },
+    // 這個user來自action帶入的token(or null - logout) 的值
     setUser (state, user) {
       state.user = user
     }
   },
+  
+
+  // 04
   actions: {
-    setToken ({commit}, token) {
+    setToken ({commit}, token) { // token 帶入 setToken
       commit('setToken', token)
     },
-    setUser ({commit}, user) {
+    setUser ({commit}, user) { // user  帶入 setUser
       commit('setUser', user)
     } 
   },
+  
+
+  // 05
   modules: {
   }
-})
-/*
-import Vue from 'vue'
-import Vuex from 'vuex'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  strict: true,
-  state: {
-    token: null,
-    user: null,
-    isUserLoggedIn: false
-  },
-  mutations: {
-    setToken (state, token) { // 這個token來自action帶入的token(or null - logout) 的值
-      state.token = token
-      if (token) { // 翻譯：如果有token的值
-        state.isUserLoggedIn = true
-      } else {
-        state.isUserLoggedIn = false
-      }
-    },
-    setUser (state, user) { // 這個user來自action帶入的token(or null - logout) 的值
-      state.user = user
-    }
-  },
-  actions: {
-    setToken ({commit}, token) {
-      commit('setToken', token)
-    },
-    setUser ({commit}, user) {
-      commit('setUser', user)
-    }
-  },
-  modules: {
-  }
 })
-*/
+

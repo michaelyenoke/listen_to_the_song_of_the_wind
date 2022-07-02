@@ -17,11 +17,16 @@ const routes = [
     path: '*',
     redirect: 'root'
   },
+
+
   {
     path: '/',
     name: 'root',
-    component: Home  // views
+    component: Home  // from "src/views/Home.vue"
+    // component/HelloWorld.vue 先進入 Home.vue 匯出名稱為 component "Home"
+    // "Home" 再進入 router/index.js 和 'root' 這個路由名稱合併在一起
   },
+
   {
     path: '/register',
     name: 'register',
