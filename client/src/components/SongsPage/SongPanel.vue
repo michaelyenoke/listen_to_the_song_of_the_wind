@@ -17,9 +17,16 @@
       <!--the add buttion-->
 
       <v-flex xs8 offset-xs2>
-        <div v-for="song in songs" class="song" :key="song.id">
+        <div 
+            v-for="song in songs" 
+            class="song" 
+            :key="song.id"
+        >
+
           <v-layout>
+        
             <v-flex xs10>
+        
               <div class="song-id">
                 {{ song.id }}
               </div>
@@ -66,7 +73,9 @@ import SongsService from "@/services/SongsService";
 export default {
   components: {
   },
+
   data() {
+    // 從後端回傳 songs 的資料  
     return {
       songs: "",
     };

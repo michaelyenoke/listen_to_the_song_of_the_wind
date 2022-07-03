@@ -18,45 +18,58 @@ const routes = [
     redirect: 'root'
   },
 
-
+  // views/Home.vue
   {
     path: '/',
     name: 'root',
     component: Home  // from "src/views/Home.vue"
-    // component/HelloWorld.vue 先進入 Home.vue 匯出名稱為 component "Home"
+    // component/HelloWorld.vue 先進入 views/Home.vue 匯出名稱為 component "Home"
     // "Home" 再進入 router/index.js 和 'root' 這個路由名稱合併在一起
   },
 
+  // views/Register.vue
   {
     path: '/register',
     name: 'register',
-    component: Register //views -> register
+    component: Register //views -> Register.vue(檔案名稱)
   },
+
+  // views/Login.vue
   {
     path: '/login',
     name: 'login',
-    component: Login // views
+    component: Login // views/Login.vue(檔案名稱)
   },
+
+  // views/Songs.vue
   {
     path: '/songs',
     name: 'songs',
-    component: Songs // views
+    component: Songs // views/Songs.vue(檔案名稱)
   },
+
+  // views/CreateSong.vue
   {
     path: '/songs/create',
     name: 'songs-create',
-    component: CreateSong  // views
+    component: CreateSong  // views/CreateSong.vue(檔案名稱)
   },
+
+  // views/EditSong.vue
   {
     path: '/songs/:songId/edit',
     name: 'songs-edit',
-    component: EditSong  // views
+    component: EditSong  // views/EditSong.vue(檔案名稱)
   },
+
+  // views/ViewSong.vue
   {
     path: '/songs/:songId',
     name: 'song',
-    component: ViewSong // views
+    component: ViewSong // views/ViewSong.vue(檔案名稱)
   }
+
+
 ]
 
 const router = new VueRouter({

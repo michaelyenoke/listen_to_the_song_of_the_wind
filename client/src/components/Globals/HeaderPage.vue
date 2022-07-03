@@ -174,7 +174,7 @@ export default {
       this.$store.dispatch("setToken", null);
       this.$store.dispatch("setUser", null);
       // todo : redirect to homepage
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "root" });
     },
 
   },
@@ -185,10 +185,9 @@ export default {
     drawer: null,
     // drawer 內的選單
     items: [
-      { title: "Todo", icon: "mdi-clipboard-list-outline", to: "/" },
-      { title: "About", icon: "mdi-information", to: "/about" },
       { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },
       { title: "Songs", icon: "mdi-music", to: "/songs" },
+      
     ],
   }),
 

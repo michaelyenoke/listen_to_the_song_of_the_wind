@@ -2,7 +2,7 @@
     <v-layout>
         <v-flex xs6>
           <div>
-             {{ youtubeId}}
+             <!--{{ youtubeId}}-->
               <youtube
                 :video-id='youtubeId'
                 :player-width="700"
@@ -19,6 +19,7 @@
 <script>
 
 export default {
+    // props in - 從index.vue引進youtubeId資料   
     props: [
         'youtubeId'
     ]

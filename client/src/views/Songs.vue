@@ -17,19 +17,3 @@
   }
 </script>
 
-<!--
-<template>
-    <id-page />
-</template>
-
-
-<script>
-import IdPage from '../components/ViewSongPage/SongIdPage'
-  export default {
-    name:'songid',
-    components: {
-    IdPage
-  },
-}
-</script>
--->

@@ -1,5 +1,7 @@
 <template>
   <card-panel title="Login">
+
+
     <!--slot part-->
     <v-layout>
       <v-flex sm-12>
@@ -40,7 +42,7 @@ import AuthenticationService from "@/services/AuthenticationService";
 import CardPanel from "@/components/Globals/Panel.vue";
 
 export default {
-  name: "LoginPage",
+  //name: "LoginPage",
   data: () => ({
     email: "",
     password: "",
@@ -64,7 +66,7 @@ export default {
         // vuex - import store/index.js -> dispatch 觸發 action
         this.$store.dispatch("setToken", response.data.token); // response.data.token 這個值會透過store/index.js中的actions帶入到mutaions中
         this.$store.dispatch("setUser", response.data.user); // 同上
-        this.$router.push({ name: "home" });
+        this.$router.push({ name: "root" });
       } catch (error) {
         this.error = error.response.data.error;
       }

@@ -1,6 +1,8 @@
 
 <template>
   <card-panel title="Register">
+
+
     <!--slot part-->
     <v-layout>
       <v-flex sm-12>
@@ -39,6 +41,7 @@
       </v-flex>
     </v-layout>
     <!--slot part-->
+
   </card-panel>
 </template> 
 
@@ -49,7 +52,7 @@ import AuthenticationService from "@/services/AuthenticationService";
 import CardPanel from "@/components/Globals/Panel.vue";
 
 export default {
-  name: "RegisterPage",
+  //name: "RegisterPage",
   data () {
     return {
       email: '',
@@ -69,6 +72,7 @@ export default {
 
     }
   },
+  // API
   methods: {
     async register () {
       try {
