@@ -1,5 +1,6 @@
 <template>
   <v-layout>
+
     <v-flex xs12>
       <div>
         {{ song.lyrics }}
@@ -12,6 +13,7 @@
 
 <script>
 export default {
+  // props in - 從index.vue引進song資料  
   props: ["song"],
 };
 </script>

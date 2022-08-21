@@ -1,6 +1,6 @@
 <template>
-<panel title="Songs" class="mt-5">
- <v-layout>
+  <panel title="Songs" class="mt-5">
+    <v-layout>
       <!--the add buttion-->
       <v-btn
         @click="navigateTo({ name: 'songs-create' })"
@@ -16,17 +16,11 @@
       </v-btn>
       <!--the add buttion-->
 
+      <!-- album information for loop -->
       <v-flex xs8 offset-xs2>
-        <div 
-            v-for="song in songs" 
-            class="song" 
-            :key="song.id"
-        >
-
+        <div v-for="song in songs" class="song" :key="song.id">
           <v-layout>
-        
             <v-flex xs10>
-        
               <div class="song-id">
                 {{ song.id }}
               </div>
@@ -57,30 +51,30 @@
                 View
               </v-btn>
             </v-flex>
+
             <img class="album-image" v-bind:src="song.albumImageUrl" />
+
             <v-flex xs6> </v-flex>
           </v-layout>
         </div>
       </v-flex>
- </v-layout>
-</panel>
+      <!-- album information for loop -->
+    </v-layout>
+  </panel>
 </template>
 
 <script>
 import SongsService from "@/services/SongsService";
 
-
 export default {
-  components: {
-  },
+  components: {},
 
   data() {
-    // 從後端回傳 songs 的資料  
+    // 從後端回傳 songs 的資料
     return {
       songs: "",
     };
   },
-  
 
   methods: {
     navigateTo(route) {
@@ -95,15 +89,15 @@ export default {
   // this.songs = (await SongsService.get()).data;
   //     //console.log('songs', this.songs)
   // },
-  
+
   watch: {
-    '$route.query.search':{
+    "$route.query.search": {
       immediate: true,
-      async handler (value) {
-        this.songs =  (await SongsService.get(value)).data
-      }
-    }
-  }
+      async handler(value) {
+        this.songs = (await SongsService.get(value)).data;
+      },
+    },
+  },
 };
 </script>
 
