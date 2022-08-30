@@ -61,9 +61,9 @@
     <!-- v-app-bar 開始 -->
     <v-app-bar
       app
-      color="yellow"
+      color="white"
       dark
-      src="https://cw1.tw/CW/images/article/C1438323247010.jpg"
+      src="https://images.unsplash.com/photo-1523115191856-c203e76215a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
       prominent
     >
 
@@ -84,7 +84,7 @@
           class="home" 
           @click="navigateTo({ name: 'root' })"
         >
-          Sputnik One
+          聽風的歌
         </span>
       </v-app-bar-title>
 
@@ -185,10 +185,9 @@ export default {
     drawer: null,
     // drawer 內的選單
     items: [
-      { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },
-      { title: "Songs", icon: "mdi-music", to: "/songs" },
-      { title: "前端開發資源", icon: "mdi-music", to: "/songs" },      
-      { title: "數據編程", icon: "mdi-music", to: "/songs" }      
+      { title: "Songs", icon: "mdi-music", to: "/songs" }, 
+      { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },      
+      { title: "Login", icon: "mdi-account-plus-outline", to: "/login" }
     ],
   }),
 
