@@ -1,5 +1,5 @@
-<template>
-  <card-panel title="Login">
+<template >
+  <card-panel title="Login"  class = "card">
 
 
     <!--slot part-->
@@ -82,5 +82,10 @@ export default {
 <style scoped>
 .danger-alert {
   color: red;
+}
+
+.card {
+  padding: 2220px;
+
 }
 </style>
