@@ -84,7 +84,7 @@
           class="home" 
           @click="navigateTo({ name: 'root' })"
         >
-          Kafka On Express
+          Code On Mars
         </span>
       </v-app-bar-title>
 
