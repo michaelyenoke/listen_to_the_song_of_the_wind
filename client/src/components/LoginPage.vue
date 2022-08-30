@@ -84,8 +84,4 @@ export default {
   color: red;
 }
 
-.card {
-  padding: 2220px;
-
-}
 </style>
