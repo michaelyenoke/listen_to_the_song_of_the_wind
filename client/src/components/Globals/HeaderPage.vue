@@ -84,7 +84,7 @@
           class="home" 
           @click="navigateTo({ name: 'root' })"
         >
-          Code On Mars
+          Sputnik One
         </span>
       </v-app-bar-title>
 
@@ -187,7 +187,8 @@ export default {
     items: [
       { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },
       { title: "Songs", icon: "mdi-music", to: "/songs" },
-      
+      { title: "前端開發資源", icon: "mdi-music", to: "/songs" },      
+      { title: "數據編程", icon: "mdi-music", to: "/songs" }      
     ],
   }),
 
