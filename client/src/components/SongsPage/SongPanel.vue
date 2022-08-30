@@ -104,24 +104,29 @@ export default {
 <style lang="scss" scoped>
 .song {
   padding: 20px;
-  height: 330px;
+  height: 300px;
+  width: 500px;
   overflow: hidden;
 }
 
 .song-title {
   font-size: 30px;
+  padding:0 20px 0 0;
 }
 
 .song-artist {
   font-size: 24px;
+  padding:0 20px 0 0;  
 }
 
 .song-genre {
   font-size: 18px;
+  padding:0 20px 0 0;  
 }
 
 .album-image {
   width: 50%;
+  margin:0 0px 0 0px;
   margin: 0 auto;
 }
 </style>
