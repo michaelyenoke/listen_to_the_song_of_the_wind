@@ -84,7 +84,7 @@
           class="home" 
           @click="navigateTo({ name: 'root' })"
         >
-          Listen to the song of the wind - 聽風的歌
+          Kafka On Express
         </span>
       </v-app-bar-title>
 
