@@ -7,7 +7,7 @@ import Songs from '../views/Songs.vue'
 import CreateSong from '../views/CreateSong.vue' 
 import ViewSong from '../views/ViewSong.vue' 
 import EditSong from '../views/EditSong.vue' 
-
+import Blogs from '../views/Blogs.vue' 
 
 Vue.use(VueRouter)
 
@@ -41,6 +41,8 @@ const routes = [
     component: Login // views/Login.vue(檔案名稱)
   },
 
+  //###################Song Part#####################//
+
   // views/Songs.vue
   {
     path: '/songs',
@@ -67,8 +69,17 @@ const routes = [
     path: '/songs/:songId',
     name: 'song',
     component: ViewSong // views/ViewSong.vue(檔案名稱)
-  }
+  },
 
+
+  //###################Blog Part#####################//  
+  
+  {
+    path: '/blogs',
+    name: 'blogs',
+    component: Blogs
+  }
+  
 
 ]
 
