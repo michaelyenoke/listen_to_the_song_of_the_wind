@@ -22,6 +22,7 @@
 
       <!-- EDIT button -->   
       <v-btn
+        v-if="$store.state.isUserLoggedIn"
         dark
         class="cyan"
         @click="

@@ -3,6 +3,7 @@
     <v-layout>
       <!--the add buttion-->
       <v-btn
+        v-if="$store.state.isUserLoggedIn"
         @click="navigateTo({ name: 'songs-create' })"
         class="green accent-2"
         fab
