@@ -47,6 +47,11 @@ export default new Vuex.Store({
   
 
   // 05
+  getters:{ //get data from state
+
+  },
+
+  // 06
   modules: {
   }
 
