@@ -78,7 +78,14 @@ const routes = [
     path: '/blogs',
     name: 'blogs',
     component: Blogs
-  }
+  },
+
+  //##################Landing Page##################//
+  {
+    path: '/landing',
+    name: 'landing',
+    component: Blogs
+  },
   
 
 ]

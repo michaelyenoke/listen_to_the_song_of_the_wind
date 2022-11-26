@@ -9,11 +9,11 @@
 
         <h1>  🌳 </h1>
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Listen To Song Of The Wind
+         Mars Index 
         </h1>
 
         <p class="subheading font-weight-regular">
-          歡迎來到聽風的歌
+          Welcome To Mars!
           <!--
           <br>please join our online
           <a
