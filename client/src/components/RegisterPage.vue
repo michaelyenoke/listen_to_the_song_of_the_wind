@@ -83,7 +83,7 @@ export default {
         await this.$store.dispatch('setToken', response.data.token)
         await this.$store.dispatch('setUser', response.data.user)
         await this.$router.push({ name: "landing" });
-        await delay(5);  //等待五秒
+        await this.delay(5);  //等待五秒
         await this.$router.push({ name: "root" });    //註冊成功會轉到root -> 這裡要改成註冊成功頁面 -> 再轉到首頁    
       } catch (error) {
         this.error = error.response.data.error
