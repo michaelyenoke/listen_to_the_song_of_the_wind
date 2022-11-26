@@ -8,6 +8,7 @@ import CreateSong from '../views/CreateSong.vue'
 import ViewSong from '../views/ViewSong.vue' 
 import EditSong from '../views/EditSong.vue' 
 import Blogs from '../views/Blogs.vue' 
+import Landing from '../views/Landing.vue' 
 
 Vue.use(VueRouter)
 
