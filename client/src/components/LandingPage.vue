@@ -22,12 +22,17 @@
           :src="require('../assets/mars_landingpage.jpeg')"
           class="my-3"
           contain
-          height="200"
+          height="600"
         />
       </v-col>
 
+      <v-col>
+        
+        <p>該頁將在 <span>{{count}}</span> 秒後自動跳轉 </p>
 
+        <router-link to="/">點擊跳轉</router-link>  
 
+      </v-col>
 
     </v-row>
   </v-container>
@@ -38,10 +43,41 @@
 <script>
   export default {
 
-    data: () => ({
- 
-    }),
+  data () {
+    return {
+      count: 6
+    }
+  },
+
+  methods: {
+
+    // 倒數功能
+    countDown() {
+      
+      // 執行一次，count減1
+      
+      this.count--  //count-- (減減)
+      
+      if (this.count === 0) {
+        this.$router.push('/')
+      }
+
+      // 每秒執行一次
+      setTimeout(() => {
+        this.countDown()
+      }, 1000)
+
+    }
+  },
+
+  mounted() {
+
+    this.countDown()
+
+  }  
+
   }
+
 </script>
 
 <style lang="scss" scoped>
