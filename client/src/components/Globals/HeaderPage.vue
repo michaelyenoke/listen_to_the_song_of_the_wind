@@ -20,7 +20,7 @@
             class="home"
             @click="navigateTo({ name: 'root' })"
             > 
-              聽風的歌 
+              Mars Index
           </v-list-item-title>
           
           <v-list-item-subtitle
@@ -84,7 +84,7 @@
           class="home" 
           @click="navigateTo({ name: 'root' })"
         >
-          聽風的歌
+          Mars Index
         </span>
       </v-app-bar-title>
 
