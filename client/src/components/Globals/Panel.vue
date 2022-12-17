@@ -5,7 +5,7 @@
 
 
 <template>
-  <v-card max-width="5%" class="mx-auto">
+  <v-card max-width="80%" class="mx-auto">
     <!--上半部的bar-->
     <v-toolbar color="cyan" dark>
       <!-- props in title name -->
@@ -48,8 +48,8 @@ export default {
 
 <style lang="scss" scoped>
 .mx-auto{
-  padding:60px;
-  width:50%;
+  padding:120px;
+  width:120%;
 }
 
 </style>
