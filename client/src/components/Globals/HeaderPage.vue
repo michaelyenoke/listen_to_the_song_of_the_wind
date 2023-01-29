@@ -186,7 +186,7 @@ export default {
     // drawer 內的選單
     items: [
       { title: "Articles", icon: "mdi-book", to: "/blogs" },      
-      { title: "Songs", icon: "mdi-music", to: "/songs" }, 
+      { title: "Search", icon: "mdi-music", to: "/songs" }, 
       { title: "Register", icon: "mdi-account-plus-outline", to: "/register" },      
       { title: "Login", icon: "mdi-account-plus-outline", to: "/login" }
     ],

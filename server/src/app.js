@@ -31,6 +31,7 @@ Blog.sync({})
 
 
 // 把 node 的 port 加回來; 和 rds 的 port 分開
-app.listen(8088);
+app.listen(8888);
+
 console.log('express is ok @@##!')
 

@@ -9,16 +9,14 @@ export default {
 
   
   // 02. get - search
-  /*
-  get (search) { // 這裡的資料要送到後端 controllers/SongsController.js中, 但送過去的search沒有資料(api有觸發), 將SongSearch.vue中的 search_is 改成 search 就可以送到後端！
-    return Api().get('songs',{
+  index (search) {
+    return Api().get('songs', {
       params: {
         search: search
-        //someRandomKey:search
       }
     })
   },
-  */
+
 
   // 03. post - song
   post (song) {
